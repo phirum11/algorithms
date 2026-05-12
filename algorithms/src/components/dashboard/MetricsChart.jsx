@@ -8,7 +8,7 @@ export default function MetricsChart({ slug, revision = 0 }) {
     setRev(r => r + 1);
   }, [slug, revision]);
 
-  const gifUrl = `http://localhost:8000/api/visualize/${slug}?rev=${rev}`;
+  const gifUrl = `${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/visualize/${slug}?rev=${rev}`;
 
   return (
     <div className="bg-white dark:bg-slate-800 flex-1 min-h-[400px] rounded-xl border border-slate-200/70 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden">
