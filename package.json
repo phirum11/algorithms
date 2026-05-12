@@ -1,0 +1,8 @@
+{
+  "name": "algorithm-workspace",
+  "private": true,
+  "scripts": {
+    "start": "cd algorithms && npm run dev",
+    "install-all": "cd algorithms && npm install && cd ../backend && pip install -r requirements.txt"
+  }
+}

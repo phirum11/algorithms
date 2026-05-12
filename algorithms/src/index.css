@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --color-bg-main: #f6f8fc;
+  --color-bg-card: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-accent-primary: #3b82f6;
+  --color-accent-secondary: #8b5cf6;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --color-bg-main: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-border: #334155;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-primary transition-colors duration-300 antialiased font-sans min-h-screen;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-bg-card border border-border rounded-2xl backdrop-blur-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:border-zinc-400/20 dark:hover:border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-500 to-violet-500 bg-clip-text text-transparent;
+  }
+  
+  .glow-button {
+    @apply relative px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-semibold rounded-lg shadow-md transition-transform hover:-translate-y-0.5 active:scale-95 hover:shadow-cyan-500/30 hover:shadow-xl;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300 dark:bg-zinc-700 rounded-full hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-colors;
+  }
+}
