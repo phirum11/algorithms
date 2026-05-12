@@ -88,7 +88,7 @@ async def analyze_algorithm(request: AnalyzeRequest):
         raise HTTPException(status_code=400, detail="Request Validation: Empty code buffer provided.")
 
     # Initialize Flash model for highest throughput low-latency response
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     
     test_input = [64, 34, 25, 12, 22, 11, 90]
     
