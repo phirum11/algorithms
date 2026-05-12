@@ -2,7 +2,7 @@ services:
   # --- PYTHON BACKEND API ---
   - type: web
     name: algorithms-backend
-    env: python
+    runtime: python
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
@@ -14,12 +14,12 @@ services:
         value: 3.10.0
 
   # --- REACT FRONTEND ---
-  - type: static
+  - type: web
     name: algorithms-frontend
-    env: static
+    runtime: static
     rootDir: algorithms
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     plan: free
     routes:
       - type: rewrite
