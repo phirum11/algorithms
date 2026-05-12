@@ -14,7 +14,7 @@ services:
         value: 3.10.0
 
   # --- REACT FRONTEND ---
-  - type: web
+  - type: static
     name: algorithms-frontend
     env: static
     rootDir: algorithms
